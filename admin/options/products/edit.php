@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Admin panel</title>
+    <title>Edit product</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                             <div class="card strpied-tabled-with-hover">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Products</h4>
+                                    <h4 class="card-title">Edit product</h4>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
@@ -59,23 +59,24 @@
                                         <tbody>
                                             <?php 
                                                 $sql = "SELECT * FROM products";
-                                                $result = $conn->query($sql);
-                                                while($row = mysqli_fetch_assoc($result)) {
+                                                $result = $connect->query($sql);
+                                                $row = mysqli_fetch_assoc($result) 
                                                     ?>
                                                         <tr>
-                                                            <td><?php echo $row["id"]; ?></td>
-                                                            <td><?php echo $row["title"]; ?></td>
-                                                            <td><?php echo $row["description"]; ?></td>
-                                                            <td><?php echo $row["category_id"]; ?></td>
-                                                            <td>
-                                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                                  <a href="options/products/edit.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Edit</a>
-                                                                  <a href="options/products/delete.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Delete</a>
-                                                                </div>
-                                                            </td>
+                                                            <form action="../function/edit_product.php" method="POST">
+                                                                <td><?php echo $row["id"]; ?></td>
+                                                                <td><input name="title" type="text" value="<?php echo $row["title"]; ?>"></td>
+                                                                <td><input name="description" type="text" value="<?php echo $row["description"]; ?>"></td>
+                                                                <td><?php echo $row["category_id"]; ?></td>
+                                                                <td>
+                                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                                      <button type="button" class="btn btn-secondary">Edit</button>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
                                                         </tr> 
                                                     <?php
-                                                }
+                                                
                                                 
                                              ?>
                                                                                       

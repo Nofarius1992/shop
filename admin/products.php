@@ -59,7 +59,7 @@
                                         <tbody>
                                             <?php 
                                                 $sql = "SELECT * FROM products";
-                                                $result = $conn->query($sql);
+                                                $result = $connect->query($sql);
                                                 while($row = mysqli_fetch_assoc($result)) {
                                                     ?>
                                                         <tr>
