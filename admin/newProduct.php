@@ -2,8 +2,6 @@
     include "../configs/db.php";
     $page = "products";
  ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,29 +31,27 @@
                         Shop-Master
                     </a>
                 </div>
-                 <?php 
+                <?php 
                     include "parts/nav.php";
                  ?>
             </div>
         </div>
-        <div class="main-panel">
+         <!-- New Ad -->
+       <div class="main-panel">
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card strpied-tabled-with-hover">
                                 <div class="card-header ">
-                                    <h4 class="card-title">Products</h4>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="newProduct.php" type="button" class="btn btn-secondary">New Ad</a>
-                                    </div>
+                                    <h4 class="card-title">New product</h4>
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead>
-                                            <th>ID</th>
                                             <th>Title</th>
                                             <th>Description</th>
+                                            <th>Content</th>
                                             <th>Category</th>
                                             <th>Options</th>
                                         </thead>
@@ -63,22 +59,23 @@
                                             <?php 
                                                 $sql = "SELECT * FROM products";
                                                 $result = $connect->query($sql);
-                                                while($row = mysqli_fetch_assoc($result)) {
+                                                $row = mysqli_fetch_assoc($result) 
                                                     ?>
                                                         <tr>
-                                                            <td><?php echo $row["id"]; ?></td>
-                                                            <td><?php echo $row["title"]; ?></td>
-                                                            <td><?php echo $row["description"]; ?></td>
-                                                            <td><?php echo $row["category_id"]; ?></td>
-                                                            <td>
-                                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                                  <a href="edit.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Edit</a>
-                                                                  <a href="options/products/delete.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Delete</a>
-                                                                </div>
-                                                            </td>
+                                                            <form action="options/function/newProduct.php" method="POST">
+                                                                <td><input name="title" type="text" placeholder="Заголовок"></td>
+                                                                <td><input name="description" type="text" placeholder="Описание"></td>
+                                                                <td><input name="content" type="text" placeholder="Полное описание"></td>
+                                                                <td><input name="category" type="text" placeholder="Категория"></td>
+                                                                <td>
+                                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                                      <button type="submit" class="btn btn-secondary">Add</button>
+                                                                    </div>
+                                                                </td>
+                                                            </form>
                                                         </tr> 
                                                     <?php
-                                                }
+                                                
                                                 
                                              ?>
                                                                                       
@@ -95,6 +92,12 @@
            
         </div>
     </div>
+
+    </div>
+
+   
+
+
 
 </body>
 <!--   Core JS Files   -->
