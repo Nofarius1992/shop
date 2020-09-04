@@ -18,7 +18,7 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Add Product</h4>
+                <h4 class="card-title">Edit Product</h4>
             </div>
             <div class="card-body">
                 <form method="POST">

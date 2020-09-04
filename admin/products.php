@@ -35,8 +35,8 @@
                                         <td><?php echo $row["category_id"]; ?></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                              <a href="edit.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Edit</a>
-                                              <a href="options/products/delete.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Delete</a>
+                                              <a href="modules/products/edit.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Edit</a>
+                                              <a href="modules/products/delete.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Delete</a>
                                             </div>
                                         </td>
                                     </tr> 
