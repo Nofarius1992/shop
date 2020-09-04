@@ -67,7 +67,7 @@
                                                                 <td><?php echo $row["id"]; ?></td>
                                                                 <td><input name="title" type="text" value="<?php echo $row["title"]; ?>"></td>
                                                                 <td><input name="description" type="text" value="<?php echo $row["description"]; ?>"></td>
-                                                                <td><?php echo $row["category_id"]; ?></td>
+                                                                <td><input name="category" type="text" value="<?php echo $row["category_id"]; ?>"></td>
                                                                 <td>
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                                       <button type="submit" class="btn btn-secondary">Edit</button>

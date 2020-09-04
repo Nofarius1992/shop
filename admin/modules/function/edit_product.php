@@ -5,7 +5,7 @@
 		
 		$_POST["title"] != "" && $_POST["description"] != "") {
 
-		$update_sql = "UPDATE products SET title = '" . $_POST["title"] . "', description = '" . $_POST["description"] . "' WHERE id = " . $_GET["id"];
+		$update_sql = "UPDATE products SET title = '" . $_POST["title"] . "', description = '" . $_POST["description"] . "', category_id = '" . $_POST["category"] . "' WHERE id = " . $_GET["id"];
 		
 		if (mysqli_query($connect, $update_sql)) {
 			// При успешном применении перенаправить
