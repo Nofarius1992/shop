@@ -2,9 +2,11 @@
 	include "configs/db.php";
 	include "parts/header.php"
  ?>
+
+
 <div class="row">
 	<?php 
-		$sql = "SELECT * FROM products";
+		$sql = "SELECT * FROM products WHERE category_id =" . $_GET["id"];
 		$result = $connect->query($sql);
 		while ($row = mysqli_fetch_assoc($result)) {
 			?>
@@ -22,6 +24,7 @@
 		}
 	?>
 </div><!-- /.row -->
+
 
 <?php 
 	include "parts/footer.php";

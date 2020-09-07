@@ -25,15 +25,21 @@
                     </thead>
                     <tbody>
                         <?php 
+                            /*Подключаем таблицу базы данных "Товары товара"*/
                             $sql = "SELECT * FROM products";
                             $result = $connect->query($sql);
                             while($row = mysqli_fetch_assoc($result)) {
+                                /*Подключаем таблицу базы данных "Категории товара"*/
+                                $sql2 = "SELECT `title` FROM `categories` WHERE id = " . $row["category_id"];
+                                $result2 = $connect->query($sql2);
+                                /*Массив с категориями товаров*/
+                                $row2 = mysqli_fetch_assoc($result2);
                                 ?>
                                     <tr>
                                         <td><?php echo $row["id"]; ?></td>
                                         <td><?php echo $row["title"]; ?></td>
                                         <td><?php echo $row["description"]; ?></td>
-                                        <td><?php echo $row["category_id"]; ?></td>
+                                        <td><?php echo $row2["title"]; ?></td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                               <a href="modules/products/edit.php?id=<?php echo $row["id"]; ?>" type="button" class="btn btn-secondary">Edit</a>

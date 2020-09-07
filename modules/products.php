@@ -17,16 +17,7 @@
 		$product = mysqli_fetch_assoc($res);
 		?>
 
-		<div class="col-4">
-			<div class="card m-2">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title"><?php echo $product["title"] ?></h5>
-					<p class="card-text"><?php echo $product["description"] ?></p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
-		</div><!-- /.col-4 -->
+		
 
 
 
