@@ -6,7 +6,7 @@
     include $_SERVER['DOCUMENT_ROOT'] ."/admin/parts/header.php";
 
     if (isset($_POST["submit"])) {
-        $sql =  "INSERT INTO products (title, description, content, category_id) VALUES ('" . $_POST["title"] . "', '" . $_POST["description"] . "', '" . $_POST["content"] . "', '" . $_POST["cat_id"] . "')";
+        $sql =  "UPDATE `products` SET `title` = '" . $_POST["title"] . "', `description` =  WHERE `products`.`id` =" . $_GET["id"];
         if($connect->query($sql)) {
             header("Location: /admin/products.php");    
         } else {

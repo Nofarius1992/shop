@@ -11,6 +11,7 @@
                 <h4 class="card-title">
                 Products
                 <a href="modules/products/add.php" type="button" class="btn btn-secondary">New Ad</a>
+                <a href="modules/products/add_category.php" type="button" class="btn btn-secondary">New Category</a>
             </h4>
             </div> <!-- /.card-header -->
             <div class="card-body table-full-width table-responsive">

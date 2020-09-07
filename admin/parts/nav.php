@@ -1,6 +1,6 @@
 <ul class="nav">
     <li class="nav-item <?php if($page == "home") { echo "active";} ?> ">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="/admin/index.php" ?>>
             <i class="nc-icon nc-chart-pie-35"></i>
             <p>Home</p>
         </a>
@@ -12,7 +12,7 @@
         </a>
     </li>
     <li class="nav-item <?php if($page == "products") { echo "active";} ?> ">
-        <a class="nav-link" href="products.php">
+        <a class="nav-link" href="/admin/products.php">
             <i class="nc-icon nc-app"></i>
             <p>Products</p>
         </a>

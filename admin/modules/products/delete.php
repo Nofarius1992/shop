@@ -1,5 +1,5 @@
 <?php 
-	include "../../../configs/db.php";
+	include "$_SERVER['DOCUMENT_ROOT'] . "configs/db.php";
 
 
 	$delete_sql = "DELETE FROM `products` WHERE `products`.`id` = " . $_GET["id"];
