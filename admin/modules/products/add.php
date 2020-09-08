@@ -14,6 +14,15 @@
         }
     }
  ?>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="/admin/products.php">Products</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+  </ol>
+</nav>
+
 <div class="row">
     <div class="col-md-8">
         <div class="card">

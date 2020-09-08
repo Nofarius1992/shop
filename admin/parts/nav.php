@@ -18,7 +18,7 @@
         </a>
     </li>
     <li class="nav-item <?php if($page == "categories") { echo "active";} ?> ">
-        <a class="nav-link" href="./typography.html">
+        <a class="nav-link" href="/admin/categories.php">
             <i class="nc-icon nc-bullet-list-67"></i>
             <p>Categories</p>
         </a>

@@ -2,25 +2,30 @@
 	include "configs/db.php";
 	include "parts/header.php"
  ?>
-<div class="row">
+<div class="row" id="prosucts">
 	<?php 
-		$sql = "SELECT * FROM products";
+		$sql = "SELECT * FROM products LIMIT 6";
 		$result = $connect->query($sql);
 		while ($row = mysqli_fetch_assoc($result)) {
-			?>
-
-			<div class="col-4">
-		<div class="card m-2">
-			<div class="card-body">
-				<h5 class="card-title"><?php echo $row["title"] ?></h5>
-				<p class="card-text"><?php echo $row["description"] ?></p>
-				<a href="#" class="btn btn-primary">В корзину</a>
-			</div>
-		</div>
-	</div><!-- /.col-4 -->
-			<?php
+			include "parts/product_card.php";
 		}
 	?>
+</div><!-- /.row -->
+
+<?php 
+/*
+1. Выводить на странице только 6 записей - done
+2. Сделать клик по кнопке - domxml_new_doc(version)
+3. Сделать запрос к базе данных на получение следующих 6 записей
+4. Получить следующие записи
+5. Вывести записи на экран
+*/
+ ?>
+
+<div class="row">
+	<div class="col-4 offset-4">
+		<button class="btn btn-primary btn-lg" id="show-more">Показать ещё</button>
+	</div>
 </div><!-- /.row -->
 
 <?php 
