@@ -1,11 +1,14 @@
 <?php 
-
+    // Подключаем базу данных
     include $_SERVER['DOCUMENT_ROOT'] ."/configs/db.php";
     $page = "products";
 
+    // Подключаем хедаер
     include $_SERVER['DOCUMENT_ROOT'] ."/admin/parts/header.php";
 
+    // Проверяем нажатие на кнопку Save
     if (isset($_POST["submit"])) {
+        // Добавляем продукт в базу данных
         $sql =  "INSERT INTO products (title, description, content, category_id) VALUES ('" . $_POST["title"] . "', '" . $_POST["description"] . "', '" . $_POST["content"] . "', '" . $_POST["cat_id"] . "')";
         if($connect->query($sql)) {
             header("Location: /admin/products.php");    

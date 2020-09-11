@@ -1,10 +1,14 @@
 <?php 
+	// Подключаем базу данных
 	include "configs/db.php";
+	// Подключаем хедер
 	include "parts/header.php";
 
+	// Выбираем товар с определенным is
 	$sql = "SELECT * FROM products WHERE id = " . $_GET["id"];
 	$result = $connect->query($sql);
 	$row = mysqli_fetch_assoc($result);
+	// Выбираем категорию товара
 	$categoryResult = $connect->query( "SELECT * FROM categories WHERE id =" . $row["category_id"] );
 	$category = mysqli_fetch_assoc( $categoryResult );
  ?>
