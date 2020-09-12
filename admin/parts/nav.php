@@ -5,10 +5,10 @@
             <p>Home</p>
         </a>
     </li>
-    <li class="nav-item <?php if($page == "users") { echo "active";} ?> ">
-        <a class="nav-link" href="./user.html">
+    <li class="nav-item <?php if($page == "orders") { echo "active";} ?> ">
+        <a class="nav-link" href="/admin/orders.php">
             <i class="nc-icon nc-circle-09"></i>
-            <p>Users</p>
+            <p>Orders</p>
         </a>
     </li>
     <li class="nav-item <?php if($page == "products") { echo "active";} ?> ">

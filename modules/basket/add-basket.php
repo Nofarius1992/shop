@@ -13,7 +13,7 @@
 			4.4 Добавить в куки
 
 	*/
-
+	// Проверяем был ли отправлен пост запрос
 	if (isset($_POST) and $_SERVER["REQUEST_METHOD"]=="POST") {
 		$sql = "SELECT * FROM products WHERE id=" . $_POST["id"];
 
@@ -22,24 +22,59 @@
 		$product = mysqli_fetch_assoc($result);
 
 		
-		// Проверка на существование куки (товар добавленный в корзину)
-		if(isset($_COOKIE["basket"])) {
+		// добавление в корзину
+		if(isset($_COOKIE["basket"])) { // если в корзине уже что-то есть
 			// Переводим в массив php
 			$basket = json_decode($_COOKIE["basket"], true);
-			$basket["basket"][] = $product["id"];
-		} else {
-			$basket = ["basket" => [$product["id"]]];
+
+
+			/*
+				1. Пройтись по всему массиву корзины - done
+				2. Проверить есть ли совпадения по id
+				3. Если совпадения есть: увеличить количество товара
+			*/
+
+			$issetProduct = 0;
+			for($i = 0; $i < count($basket["basket"]); $i++) {
+				if( $basket["basket"][$i]["product_id"] == $product["id"] ) {
+					$basket["basket"][$i]["count"]++;
+					$basket["basket"][$i]["cost"] = $product["cost"] * $basket["basket"][$i]["count"];
+					$issetProduct = 1;
+				}
+			}
+
+			if($issetProduct != 1) {
+				$basket["basket"][] = [
+				"product_id" => $product["id"],
+				"count" => 1,
+				"cost" => $product["cost"]
+				];
+			}
+			
+
+			/*
+				product_id: 1;
+				coutn: 3
+			*/
+
+		} else { // если корзина пустая
+			$basket = [ "basket" => [
+				["product_id" => $product["id"],
+				"count" => 1,
+				"cost" => $product["cost"]]
+			] ];
 		}
 
 		// Преобразование массива в JSON формат
 		$jsonProduct = json_encode($basket);
 
+		// Очистить куки
+		setcookie("basket", "", 0, "/");
+
 		// Добавляем куки
 		setcookie("basket", $jsonProduct, time() + 60*60, "/");
 
-		echo json_encode([
-			"count" => count($basket["basket"])
-		]);
+		echo $jsonProduct;
 	}
 
 	
