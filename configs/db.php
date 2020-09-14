@@ -2,11 +2,11 @@
 	// Имя хоста
 	$servername = "localhost";
 	// Пользователь
-	$username = "root";
+	$username = "nofarius";
 	// Пароль
-	$password = "";
+	$password = "1992TolPro";
 	// Имя базы данных
-	$db_name = "shop";
+	$db_name = "nofarius";
 
 	// Create connection
 	$connect = new mysqli($servername, $username, $password, $db_name);

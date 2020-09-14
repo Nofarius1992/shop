@@ -1,7 +1,7 @@
 var btnShowMore = document.querySelector("#show-more");
 
 // Ссылка
-var siteURL = "http://shop-master.local/";
+var siteURL = "http://shop-master-top.zzz.com.ua/";
 
 if(btnShowMore) {
 	btnShowMore.onclick = function() {

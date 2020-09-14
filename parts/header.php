@@ -27,6 +27,11 @@
 	        <a class="nav-link" href="contacts.php">Contacts</a>
 	      </li>
 	    </ul>
+
+	    <!-- Регистрация и модальное окно -->
+	    <a class="btn btn-outline-success" href="authorization.php">Авторизация</a>
+	    <a class="btn btn-outline-success" href="register.php">Регистрация</a>
+
 	    <form class="form-inline my-2 my-lg-0">
 	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
